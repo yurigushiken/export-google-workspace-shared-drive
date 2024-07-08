@@ -45,3 +45,6 @@ python script.py
 
 The Shared Drive ID can be obtained from the URL of the root folder of the Shared Drive, e.g. `https://drive.google.com/drive/u/1/folders/{ID FOUND HERE}` 
 
+### Compatibility
+
+This script has only been tested on Windows 11.
