@@ -38,7 +38,6 @@ def sanitize_filename(filename):
     return filename
 
 def download_file(drive_service, file_id, file_name, local_folder_path, mime_type):
-
     file_name = sanitize_filename(file_name)
 
     # Mapping for Google Drive document types to Microsoft Office formats
@@ -63,6 +62,11 @@ def download_file(drive_service, file_id, file_name, local_folder_path, mime_typ
 
     file_path_with_extension = os.path.join(local_folder_path, file_name)
     os.makedirs(os.path.dirname(file_path_with_extension), exist_ok=True)
+
+    # Check if the file already exists locally
+    if os.path.exists(file_path_with_extension):
+        print(f"File already exists, skipping download: {file_path_with_extension}")
+        return  # Skip download if file exists
 
     file_data = io.BytesIO()
     downloader = MediaIoBaseDownload(file_data, request)
