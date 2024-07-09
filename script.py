@@ -68,15 +68,18 @@ def download_file(drive_service, file_id, file_name, local_folder_path, mime_typ
         print(f"File already exists, skipping download: {file_path_with_extension}")
         return  # Skip download if file exists
 
-    file_data = io.BytesIO()
-    downloader = MediaIoBaseDownload(file_data, request)
-    done = False
-    while not done:
-        status, done = downloader.next_chunk()
+    try:
+        file_data = io.BytesIO()
+        downloader = MediaIoBaseDownload(file_data, request)
+        done = False
+        while not done:
+            status, done = downloader.next_chunk()
 
-    with open(file_path_with_extension, 'wb') as f:
-        f.write(file_data.getvalue())
-    print(f"File saved: {file_path_with_extension}")
+        with open(file_path_with_extension, 'wb') as f:
+            f.write(file_data.getvalue())
+        print(f"File saved: {file_path_with_extension}")
+    except Exception as e:
+        print(f"Failed to download {file_name}. Error: {str(e)}")
 
 
 def download_files_in_folder(drive_service, folder_id, local_folder_path, shared_drive_id):
