@@ -5,7 +5,7 @@ This script allows you to export all files from a Google Workspace Shared Drive 
 Thank you 'fariazz' for the original script.
 
 This modified script addresses files with paths that are too long, invalid file name characters, or in export size limit excess. 
-In the event an export is interrupted, this modified script will check for a file before re-exporting, so as to not have to start over again completely. 
+In the event an export is interrupted, this modified script will check for a file before re-exporting, so as to not have to re-export files that have already been saved. 
 
 Improvements in this project:
 
