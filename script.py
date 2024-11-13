@@ -10,7 +10,7 @@ from google.auth.transport.requests import Request
 
 CLIENT_SECRETS_FILE = "client_secret.json"
 SCOPES = ['https://www.googleapis.com/auth/drive']
-local_path = "E:/test"  # Path to external drive
+local_path = "E:/LCN lab backup"  # Path to external drive
 
 if not os.path.exists(local_path):
     os.makedirs(local_path)
@@ -86,8 +86,11 @@ def download_file(drive_service, file_id, file_name, local_folder_path, mime_typ
         print(f"File saved: {file_path_with_extension}")
     except Exception as e:
         if "exportSizeLimitExceeded" in str(e):
-            print(f"Export failed due to size limit. Downloading as Google format for {file_name}.")
-            download_google_native_format(drive_service, file_id, file_name, local_folder_path, mime_type)
+            print(f"Export failed due to size limit. Attempting to download Google-native format for {file_name}.")
+            try:
+                download_google_native_format(drive_service, file_id, file_name, local_folder_path, mime_type)
+            except Exception as link_error:
+                print(f"Failed to retrieve Google-native link for {file_name}. Error: {link_error}")
         else:
             print(f"Failed to download {file_name}. Error: {str(e)}")
 
