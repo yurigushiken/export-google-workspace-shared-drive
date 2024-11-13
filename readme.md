@@ -2,7 +2,7 @@ Thank you to fariazz for the original script.
 
 Improvements in this project:
 
-- Enhanced filename sanitization removes additional special characters, limits filenames to 50 characters, and ensures cleaner, compatible filenames.
+- Enhanced filename sanitization removes additional special characters, limits filenames to 50 characters, and ensures cleaner, compatible filenames (cause for errors when downloading zipped in browser).
 - Introduces path length handling to truncate folder and file names, avoiding issues with excessively long paths.
 - Checks file size in addition to file existence to prevent redownloading incomplete or modified files.
 - Handles Google-native formats with a fallback mechanism to generate web view links when export size limits are exceeded.
