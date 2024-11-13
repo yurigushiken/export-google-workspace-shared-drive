@@ -10,7 +10,7 @@ from google.auth.transport.requests import Request
 
 CLIENT_SECRETS_FILE = "client_secret.json"
 SCOPES = ['https://www.googleapis.com/auth/drive']
-local_path = "E:/LCN lab backup"  # Path to external drive
+local_path = "local path here"  
 
 if not os.path.exists(local_path):
     os.makedirs(local_path)
@@ -36,8 +36,8 @@ def sanitize_filename(filename):
     filename = filename.replace('/', '').replace('\\', '').replace('|', '').replace('?', '')
     filename = filename.replace('*', '').replace('(', '').replace(')', '').replace(',', '')
     filename = filename.replace('&', '').replace('.', '').replace(';', '')  
-    filename = ' '.join(filename.split())  # Remove extra spaces
-    return filename[:50]  # Limit to 50 characters
+    filename = ' '.join(filename.split())  
+    return filename[:50]  
 
 def ensure_path_length(path):
     if len(path) > 250:
