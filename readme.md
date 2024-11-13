@@ -1,4 +1,6 @@
-Thank you to fariazz for the original script.
+# Google Workspace Shared Drive Export Modified Script
+
+Thank you 'fariazz' for the original script.
 
 Improvements in this project:
 
