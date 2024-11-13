@@ -1,12 +1,18 @@
-# Disclaimer
+Thank you to fariazz for the original script.
 
-This software is provided under the MIT License. It is provided "AS IS", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
+Improvements in this project:
 
-Please note that this software is not officially supported or endorsed by Google. The use of this script is at your own risk.
+- Enhanced filename sanitization removes additional special characters, limits filenames to 50 characters, and ensures cleaner, compatible filenames.
+- Introduces path length handling to truncate folder and file names, avoiding issues with excessively long paths.
+- Checks file size in addition to file existence to prevent redownloading incomplete or modified files.
+- Handles Google-native formats with a fallback mechanism to generate web view links when export size limits are exceeded.
+- Incorporates improved error handling with specific messages for issues like export size limits and alternative actions for problematic files.
+- Optimizes duplicate file avoidance by comparing file names and sizes more effectively.
 
 # Google Workspace Shared Drive Export Script
 
-This script allows you to export all files from a Google Workspace Shared Drive to your local machine. As of July 2024, Google Workspace does not provide a direct way to export Shared Drive content, so this script fills that gap.
+This script allows you to export all files from a Google Workspace Shared Drive to your local machine. As of October 2024, Google Workspace does not provide a direct way to export Shared Drive content, so this script fills that gap.
+
 
 ## Prerequisites
 
